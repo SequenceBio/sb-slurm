@@ -14,8 +14,35 @@ This profile accomodates these peculiarities.
 
 ## Usage
 
-Given a workflow `my-workflow`, copy the `aws-parallelcluster-slurm` directory to `my-workflow/profiles`.
-Make sure the `status-scontrol.sh` script is executable, and in `config.yaml`change the parameter `partition`
-in section `default-resources` to the name of a queue in your cluster.
+### Obtain the profile
 
-From `my-workflow`, execute Snakemake as `snakemake --profile profiles/aws-parallelcluster-slurm`.
+Clone this repository to a convenient location on the head node
+```
+git clone https://github.com/SequenceBio/sb-slurm.git
+```
+
+### Edit the profile
+
+The profile in this repository should be sufficient for many basic use cases at SB.  If needed, you can edit this profile by changing parameters in `config.yaml`.  For example, you may want to add `--rerun-incomplete` to the snakemake command, or you may want to adjust the default partition.
+
+### Set up a wrapper script
+
+Copy the script `wrapper.sh` from this repository into your pipeline directory.  Be sure that the path after `--profile` points back to this repository.
+
+### Run your pipeline
+
+Navigate into your pipeline directory.  Submit the wrapper script to the job scheduler
+```
+sbatch wrapper.sh
+```
+
+### Evaluate your pipeline run
+
+Monitor your jobs with `squeue`.  To continually refresh `squeue` at 10 second intervals, run `watch -n10 squeue`
+
+
+Upon pipeline completion, check the following to examine your run:
+- Look in `results/` to see the files produced by the pipeline run
+- Look in `log_<datestamp>.out` to see the Snakemake stdout - the final few lines should include an indication of whether the pipeline finished successfully or not
+- Look in the `logs/` directory, which contains the stdout and stderr for every rule that was run.  This is helpful for troubleshooting if a pipeline did not complete successfully.
+
