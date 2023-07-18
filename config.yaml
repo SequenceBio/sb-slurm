@@ -5,24 +5,23 @@ cluster:
     --cpus-per-task={threads}
     --time={resources.time}
     --job-name=smk-{rule}
-    --output=logs/{rule}/{jobid}.out
-    --error=logs/{rule}/{jobid}.err
+    --output=logs/{rule}/{rule}.{jobid}.%j.out
     --partition={resources.partition}
 default-resources:
-  - time=1440
-  - partition='compute-small'
-  - tmpdir='/scratch'
+  - time="01:00:00"
+  - partition="short"
+  - tmpdir="/tmp"
+  - mem_mb=1024
 jobs: 150
-latency-wait: 120
+latency-wait: 30
 local-cores: 1
-restart-times: 1
+restart-times: 0
 max-jobs-per-second: 10
-keep-going: True
+keep-going: False
 rerun-incomplete: True
 printshellcmds: True
 scheduler: greedy
-use-conda: True
-conda-frontend: mamba
+#use-conda: True
 cluster-status: status-scontrol.sh
 cluster-cancel: scancel
 max-status-checks-per-second: 10
