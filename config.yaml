@@ -5,7 +5,7 @@ cluster:
     --cpus-per-task={threads}
     --time={resources.time}
     --job-name=smk-{rule}
-    --mem_mb={resources.mem_mb}
+    --mem-per-cpu={resources.mem_mb}
     --output=logs/{rule}/{rule}.{jobid}.%j.out
     --partition={resources.partition}
 default-resources:
