@@ -1,5 +1,6 @@
 cluster:
   mkdir -p logs/{rule}/ &&
+  mkdir -p tmp/ && 
   sbatch
     --parsable
     --cpus-per-task={threads}
@@ -11,7 +12,7 @@ cluster:
 default-resources:
   - time="01:00:00"
   - partition="short"
-  - tmpdir="/tmp"
+  - tmpdir="tmp/"
   - mem_mb=1024
 jobs: 150
 latency-wait: 30
