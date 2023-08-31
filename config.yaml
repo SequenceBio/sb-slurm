@@ -11,9 +11,9 @@ cluster:
     --partition={resources.partition}
 default-resources:
   - time="01:00:00"
-  - partition="short"
+  - partition="spotshort"
   - tmpdir="tmp/"
-  - mem_mb=1024
+  - mem_mb=2048
 jobs: 150
 latency-wait: 30
 local-cores: 1
