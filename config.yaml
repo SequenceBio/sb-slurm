@@ -13,9 +13,9 @@ default-resources:
   - time="01:00:00"
   - partition="spotshort"
   - tmpdir="tmp/"
-  - mem_mb=2048
+  - mem_mb=3800
 jobs: 150
-latency-wait: 30
+latency-wait: 60
 local-cores: 1
 restart-times: 0
 max-jobs-per-second: 10
