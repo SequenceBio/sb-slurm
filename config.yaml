@@ -10,9 +10,8 @@ cluster:
     --output=logs/{rule}/{rule}.{jobid}.%j.out
     --partition={resources.partition}
 default-resources:
-  - time="01:00:00"
   - partition="spotshort"
-  - tmpdir="tmp/"
+  - tmpdir="tmp"
   - mem_mb=3800
 jobs: 150
 latency-wait: 60
