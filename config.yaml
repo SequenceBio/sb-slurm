@@ -10,6 +10,7 @@ cluster:
     --output=logs/{rule}/{rule}.{jobid}.%j.out
     --partition={resources.partition}
 default-resources:
+  - time="24:00:00"
   - partition="spotshort"
   - tmpdir="tmp"
   - mem_mb=3800
