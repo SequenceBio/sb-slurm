@@ -14,6 +14,7 @@ default-resources:
   - partition="spotshort"
   - tmpdir="tmp"
   - mem_mb=3800
+  - load=1
 jobs: 150
 latency-wait: 60
 local-cores: 1
