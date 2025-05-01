@@ -25,5 +25,4 @@ rerun-incomplete: True
 printshellcmds: True
 scheduler: greedy
 use-conda: True
-cluster-status: status-scontrol.sh
 max-status-checks-per-second: 10
