@@ -25,4 +25,5 @@ rerun-incomplete: True
 printshellcmds: True
 scheduler: greedy
 use-conda: True
+cluster-generic-cancel-cmd: scancel
 max-status-checks-per-second: 10
