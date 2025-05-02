@@ -1,4 +1,5 @@
-cluster:
+executor: cluster-generic
+cluster-generic-submit-cmd:
   mkdir -p logs/{rule}/ &&
   mkdir -p tmp/ && 
   sbatch
@@ -10,12 +11,13 @@ cluster:
     --output=logs/{rule}/{rule}.{jobid}.%j.out
     --partition={resources.partition}
 default-resources:
-  - time="01:00:00"
+  - time="24:00:00"
   - partition="spotshort"
-  - tmpdir="tmp/"
-  - mem_mb=2048
+  - tmpdir="tmp"
+  - mem_mb=3800
+  - load=1
 jobs: 150
-latency-wait: 30
+latency-wait: 60
 local-cores: 1
 restart-times: 0
 max-jobs-per-second: 10
@@ -24,6 +26,5 @@ rerun-incomplete: True
 printshellcmds: True
 scheduler: greedy
 use-conda: True
-cluster-status: status-scontrol.sh
-cluster-cancel: scancel
+cluster-generic-cancel-cmd: scancel
 max-status-checks-per-second: 10
