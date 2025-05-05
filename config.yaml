@@ -27,4 +27,5 @@ printshellcmds: True
 scheduler: greedy
 use-conda: True
 cluster-generic-cancel-cmd: scancel
+cluster-generic-status-cmd: status-scontrol.sh
 max-status-checks-per-second: 10
