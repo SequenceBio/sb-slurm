@@ -1,4 +1,5 @@
-cluster:
+executor: cluster-generic
+cluster-generic-submit-cmd:
   mkdir -p logs/{rule}/ &&
   mkdir -p tmp/ && 
   sbatch
@@ -25,6 +26,6 @@ rerun-incomplete: True
 printshellcmds: True
 scheduler: greedy
 use-conda: True
-cluster-status: status-scontrol.sh
-cluster-cancel: scancel
+cluster-generic-cancel-cmd: scancel
+cluster-generic-status-cmd: status-scontrol.sh
 max-status-checks-per-second: 10
